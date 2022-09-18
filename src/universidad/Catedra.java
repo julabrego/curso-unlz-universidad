@@ -12,6 +12,9 @@ class Catedra {
     public Catedra(String nombre, Docente titular) {
         this.nombre = nombre;
         this.titular = titular;
+        
+        // Es necesario instanciar un ArrayList vacío para que podamos agregar información luego
+        this.alumnos = new ArrayList<Alumno>();
     }
 
     public String getNombre() {

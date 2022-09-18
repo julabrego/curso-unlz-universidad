@@ -8,12 +8,14 @@ class Facultad {
     private Direccion direccion;
     private ArrayList<Catedra> catedras;
     private ArrayList<Empleado> empleados;
+    private ArrayList<Aula> aulas;
 
     public Facultad(String nombre, Direccion direccion) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.catedras = new ArrayList<Catedra>();
         this.empleados = new ArrayList<Empleado>();
+        this.aulas = new ArrayList<Aula>();
     }
 
     public String getNombre() {
@@ -58,4 +60,14 @@ class Facultad {
         this.empleados.add(empleado);
     }
     // borrar empleado
+    
+        public ArrayList<Aula> getAulas() {
+        return aulas;
+    }
+
+    public void agregarAula(Aula aula) {
+        this.aulas.add(aula);
+    }
+    
+    // borrarAula
 }
