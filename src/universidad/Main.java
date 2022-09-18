@@ -65,10 +65,10 @@ public class Main {
         }
         
         // Reviso que se hayan registrado esos alumnos
-        System.out.println(facultadDeCienciasSociales.getCatedras().get(0).getAlumnos());
-        System.out.println(facultadDeCienciasSociales.getCatedras().get(1).getAlumnos());
-        System.out.println(facultadDeIngenieria.getCatedras().get(0).getAlumnos());
-        System.out.println(facultadDeIngenieria.getCatedras().get(1).getAlumnos());
+        System.out.println(facultadDeCienciasSociales.getCatedras().get(0).getAlumnosData());
+        System.out.println(facultadDeCienciasSociales.getCatedras().get(1).getAlumnosData());
+        System.out.println(facultadDeIngenieria.getCatedras().get(0).getAlumnosData());
+        System.out.println(facultadDeIngenieria.getCatedras().get(1).getAlumnosData());
 
     }
 

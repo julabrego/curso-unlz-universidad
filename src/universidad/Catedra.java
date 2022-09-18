@@ -44,6 +44,14 @@ class Catedra {
     public ArrayList<Alumno> getAlumnos() {
         return alumnos;
     }
+    
+    public String getAlumnosData(){
+        String alumnosData = "";
+        for(Alumno alumno : this.alumnos){
+            alumnosData += String.format("Legajo: %o\nDni: %o\nNombre y apellido: %s %s\n\n", alumno.getLegajo(), alumno.getDni(), alumno.getNombre(), alumno.getApellidad());
+        }
+        return alumnosData;
+    }
 
     public void agregarAlumno(Alumno alumno) {
         this.alumnos.add(alumno);
