@@ -12,6 +12,8 @@ class Facultad {
     public Facultad(String nombre, Direccion direccion) {
         this.nombre = nombre;
         this.direccion = direccion;
+        this.catedras = new ArrayList<Catedra>();
+        this.empleados = new ArrayList<Empleado>();
     }
 
     public String getNombre() {
