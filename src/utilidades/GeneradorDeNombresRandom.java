@@ -1,4 +1,4 @@
-package randomGenerators;
+package utilidades;
 
 public class GeneradorDeNombresRandom {
 

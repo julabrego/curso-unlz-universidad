@@ -1,7 +1,7 @@
 package universidad;
 
 import static java.lang.Math.random;
-import randomGenerators.GeneradorDeNombresRandom;
+import utilidades.GeneradorDeNombresRandom;
 
 public class Main {
 
@@ -44,32 +44,35 @@ public class Main {
         // Inscribo alumnos rándom a cada cátedra
         for (Catedra catedra : facultadDeIngenieria.getCatedras()) {
             String nombreDeCatedra = catedra.getNombre();
-            
+
             int capacidadDeAulaDondeSeDa = catedra.getAulaDondeSeDa().getCapacidad();
-            System.out.println("Cátedra " + nombreDeCatedra + " se da en un aula con capacidad de " + capacidadDeAulaDondeSeDa + " alumnos");
-            
-            for(int i = 0; i < capacidadDeAulaDondeSeDa; i++){
+            System.out.println("Inscribo alumnos a Cátedra " + nombreDeCatedra + " se da en un aula con capacidad de " + capacidadDeAulaDondeSeDa + " alumnos");
+
+            // Excedo la capacidad del aula para forzar el mensaje de error
+            for (int i = 0; i < capacidadDeAulaDondeSeDa + 5; i++) {
                 catedra.agregarAlumno(crearAlumnoRandom());
             }
         }
 
+        // Imprimo la información de los alumnos (para debuggear)
         for (Catedra catedra : facultadDeCienciasSociales.getCatedras()) {
             String nombreDeCatedra = catedra.getNombre();
-            
+
             int capacidadDeAulaDondeSeDa = catedra.getAulaDondeSeDa().getCapacidad();
-            System.out.println("Cátedra " + nombreDeCatedra + " se da en un aula con capacidad de " + capacidadDeAulaDondeSeDa + " alumnos");
-            
-            for(int i = 0; i < capacidadDeAulaDondeSeDa; i++){
-                catedra.agregarAlumno(crearAlumnoRandom());
+            System.out.println("Inscribo alumnos a Cátedra " + nombreDeCatedra + " se da en un aula con capacidad de " + capacidadDeAulaDondeSeDa + " alumnos");
+
+            for (int i = 0; i < capacidadDeAulaDondeSeDa; i++) {
+                    catedra.agregarAlumno(crearAlumnoRandom());
             }
         }
-        
+
         // Reviso que se hayan registrado esos alumnos
+        /*
         System.out.println(facultadDeCienciasSociales.getCatedras().get(0).getAlumnosData());
         System.out.println(facultadDeCienciasSociales.getCatedras().get(1).getAlumnosData());
         System.out.println(facultadDeIngenieria.getCatedras().get(0).getAlumnosData());
         System.out.println(facultadDeIngenieria.getCatedras().get(1).getAlumnosData());
-
+         */
     }
 
     private static Facultad crearFacultadDeIngenieria() {
