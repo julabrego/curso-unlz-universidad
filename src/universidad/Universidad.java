@@ -9,6 +9,7 @@ public class Universidad {
 
     public Universidad(String nombre) {
         this.nombre = nombre;
+        this.facultades = new ArrayList<Facultad>();
     }
 
     public String getNombre() {

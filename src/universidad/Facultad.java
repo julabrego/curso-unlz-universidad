@@ -2,7 +2,7 @@ package universidad;
 
 import java.util.ArrayList;
 
-class Facultad {
+public class Facultad {
     private String nombre;
     private Docente decano;
     private Direccion direccion;
@@ -70,4 +70,22 @@ class Facultad {
     }
     
     // borrarAula
+    
+    public String getDetalles(){
+        String detalles = "Nombre: " + this.nombre + "\n"
+                + "Decano: " + this.decano + "\n"
+                + "Direccion: " + this.direccion.calle + " " + this.direccion.numero + "\n"
+                + "Cátedras: \n";
+        
+        for(Catedra catedra : this.catedras){
+            detalles += catedra.getNombre() + ",\n"
+                    + "docente a cargo: " + catedra.getTitular().getNombre() + " " + catedra.getTitular().getApellidad() + "\n"
+                    + "con " + catedra.getAlumnos().size() + " alumnos inscriptos";
+            
+            detalles += "Listado de alumnos: \n" + catedra.getAlumnosData();
+            
+        }
+        
+        return detalles;
+    }
 }

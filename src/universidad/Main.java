@@ -1,13 +1,25 @@
 package universidad;
 
 import static java.lang.Math.random;
+import universidad.menu.Menu;
 import utilidades.GeneradorDeNombresRandom;
 
 public class Main {
 
+    // En primer lugar instancio Mi Universidad
+    static Universidad miUniversidad = new Universidad("Universidad de programación");
+    static Menu menu;
+    static boolean verbose = false;
+
     public static void main(String[] args) {
-        // En primer lugar instancio Mi Universidad
-        Universidad miUniversidad = new Universidad("Universidad de programación");
+        Main.generarPlaceholders();
+
+        menu = new Menu(miUniversidad);
+        
+        menu.ejecutarMenu();
+    }
+
+    public static void generarPlaceholders() {
 
         // Luego creo las dos facultades que va a contener (usando funciones estáticas que creé para tal fin)
         Facultad facultadDeIngenieria = crearFacultadDeIngenieria();
@@ -46,7 +58,9 @@ public class Main {
             String nombreDeCatedra = catedra.getNombre();
 
             int capacidadDeAulaDondeSeDa = catedra.getAulaDondeSeDa().getCapacidad();
-            System.out.println("Inscribo alumnos a Cátedra " + nombreDeCatedra + " se da en un aula con capacidad de " + capacidadDeAulaDondeSeDa + " alumnos");
+            if (Main.verbose) {
+                System.out.println("Inscribo alumnos a Cátedra " + nombreDeCatedra + " se da en un aula con capacidad de " + capacidadDeAulaDondeSeDa + " alumnos");
+            }
 
             // Excedo la capacidad del aula para forzar el mensaje de error
             for (int i = 0; i < capacidadDeAulaDondeSeDa + 5; i++) {
@@ -59,20 +73,25 @@ public class Main {
             String nombreDeCatedra = catedra.getNombre();
 
             int capacidadDeAulaDondeSeDa = catedra.getAulaDondeSeDa().getCapacidad();
-            System.out.println("Inscribo alumnos a Cátedra " + nombreDeCatedra + " se da en un aula con capacidad de " + capacidadDeAulaDondeSeDa + " alumnos");
+            if (Main.verbose) {
+                System.out.println("Inscribo alumnos a Cátedra " + nombreDeCatedra + " se da en un aula con capacidad de " + capacidadDeAulaDondeSeDa + " alumnos");
+            }
 
             for (int i = 0; i < capacidadDeAulaDondeSeDa; i++) {
-                    catedra.agregarAlumno(crearAlumnoRandom());
+                catedra.agregarAlumno(crearAlumnoRandom());
             }
         }
 
         // Reviso que se hayan registrado esos alumnos
-        /*
-        System.out.println(facultadDeCienciasSociales.getCatedras().get(0).getAlumnosData());
-        System.out.println(facultadDeCienciasSociales.getCatedras().get(1).getAlumnosData());
-        System.out.println(facultadDeIngenieria.getCatedras().get(0).getAlumnosData());
-        System.out.println(facultadDeIngenieria.getCatedras().get(1).getAlumnosData());
-         */
+        if (Main.verbose) {
+            System.out.println(facultadDeCienciasSociales.getCatedras().get(0).getAlumnosData());
+            System.out.println(facultadDeCienciasSociales.getCatedras().get(1).getAlumnosData());
+            System.out.println(facultadDeIngenieria.getCatedras().get(0).getAlumnosData());
+            System.out.println(facultadDeIngenieria.getCatedras().get(1).getAlumnosData());
+        }
+        
+        miUniversidad.agregarFacultad(facultadDeIngenieria);
+        miUniversidad.agregarFacultad(facultadDeCienciasSociales);
     }
 
     private static Facultad crearFacultadDeIngenieria() {

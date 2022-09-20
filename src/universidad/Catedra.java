@@ -49,9 +49,9 @@ class Catedra {
     public void agregarAlumno(Alumno alumno) {
         if(this.alumnos.size() <= this.aulaDondeSeDa.getCapacidad()){
             this.alumnos.add(alumno);
-            System.out.println(Color.GREEN + "Alumno " + alumno.getNombre() + " " + alumno.getApellidad() + " agregado correctamente." + Color.RESET);
+            if(Main.verbose) System.out.println(Color.GREEN + "Alumno " + alumno.getNombre() + " " + alumno.getApellidad() + " agregado correctamente." + Color.RESET);
         }else{
-            System.out.println(Color.RED + "El aula alcanzó su capacidad máxima y no se pudo agregar el alumno " + alumno.getNombre() + " " + alumno.getApellidad() + Color.RESET);
+            if(Main.verbose) System.out.println(Color.RED + "El aula alcanzó su capacidad máxima y no se pudo agregar el alumno " + alumno.getNombre() + " " + alumno.getApellidad() + Color.RESET);
         }
     }
     
